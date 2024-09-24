@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        ul {
+            list-style-type: none; /* Removes bullet points */
+            padding: 0;           /* Removes default padding */
+            margin: 0;            /* Removes default margin */
+        }
+        
+        li {
+            margin-bottom: 0.5em; /* Adds space between items */
+        }
+    </style>
+
+    <title>{{.Name}}'s Resume</title>
+</head>
+<body class="bg- font-sans p-8">
+    <div class="max-w-3xl mx-auto bg-white">
+        <h1 class="text-4xl font-bold text-center text-gray-800">{{.Name}}</h1>
+        <p class="text-center text-gray-600">{{.Contact}}</p>
+        <hr class="my-4 border-gray-300">
+        
+        <section class="mt-4">
+            <h2 class="text-2xl font-semibold text-gray-800">About Me</h2>
+            <p class="text-gray-700">{{.Summary}}</p>
+        </section>
+
+        <section class="mt-4 space-y-0">
+            <h2 class="text-2xl font-semibold text-gray-800">Experience</h2>
+            <ul class="pl-5 text-gray-700 space-y-0 ">
+                {{range .ProfessionalExp}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </section>
+
+        <section class="mt-4">
+            <h2 class="text-2xl font-semibold text-gray-800">Education</h2>
+            <ul class="list-disc pl-5 text-gray-700">
+                {{range .Education}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </section>
+
+        <section class="mt-4">
+            <h2 class="text-2xl font-semibold text-gray-800">Skills</h2>
+            <ul class="list-disc pl-5 text-gray-700">
+                {{range .Skills}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
